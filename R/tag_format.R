@@ -1,10 +1,41 @@
-library(reticulate)
+## library(reticulate)
 
-source_python('pit.py')
-d <- c('985120005558140', '985120013751519', '900_226000054864')
+## source_python('pit.py')
+## d <- c('985120005558140', '985120013751519', '900_226000054864')
 
-r  <- sapply(d, pit_dectohex)
-back  <- sapply(r, pit_hextodec)
+#' Convert between pittag formats
+#'
+#' Pittag ids are 64-bit numbers. The pittag is usually presented as a
+#' text string with either decimal och hexadecimal numbers. These functions
+#' convert bwtween these two formats
+#'
+#' @param x character vector
+#'
+#' @return
+#' A character vector of of pittags converted to new format.
+#' @export
+#'
+#' @examples
+dec2hex <- function(x) {
+  r  <- sapply(x, py_dectohex)
+  return(r)
+}
+
+#' Convert between pittag formats
+#'
+#' Pittag ids are 64-bit numbers. The pittag is usuallt presented as a
+#' text string with either decimal och hexadecimal numbers. These functions
+#' convert bwtween these two formats
+#'
+#' @param x character vector
+#'
+#' @return
+#' A character vector of of pittags converted to new format.
+#' @export
+hex2dec <- function(x) {
+  r <- sapply(x, py_hextodec)
+  return(r)
+}
 
 ## toHex  <- function(x) {
 ##     bs <- as.bitstring(as.integer64(x))
