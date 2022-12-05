@@ -2,9 +2,12 @@
 % Please edit documentation in R/tag_format.R
 \name{dec2hex}
 \alias{dec2hex}
+\alias{hex2dec}
 \title{Convert between pittag formats}
 \usage{
 dec2hex(x)
+
+hex2dec(x)
 }
 \arguments{
 \item{x}{character vector}
@@ -13,7 +16,13 @@ dec2hex(x)
 A character vector of of pittags converted to new format.
 }
 \description{
-Pittag ids are 64-bit numbers. The pittag is usuallt presented as a
-text string with either decimal och hexadecimal numbers. These functions
-convert bwtween these two formats
+`dec2hex()` and `hex2dec()` converts between different display fomats used for pittags.
+Pittag ids are 64-bit numbers. The pittag is usually presented as a
+text string with either decimal and hexadecimal numbers. These functions
+convert between these two formats
+}
+\examples{
+dec <- c('985120005558140', '985120013751519', '900_226000054864')
+(hex <- dec2hex(dec))
+hex2dec(hex)
 }
