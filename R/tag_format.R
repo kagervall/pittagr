@@ -21,14 +21,18 @@
 #' (hex <- dec2hex(dec))
 #' hex2dec(hex)
 dec2hex <- function(x) {
+  x[is.na(x)] <- "000000000000000"
   r  <- sapply(x, py_dectohex)
+  r[r == "000.0000000000"] <- NA
   return(r)
 }
 
 #' @rdname dec2hex
 #' @export
 hex2dec <- function(x) {
+  x[is.na(x)] <- "000.0000000000"
   r <- sapply(x, py_hextodec)
+  r[r == "000.000000000000"] <- NA
   return(r)
 }
 
