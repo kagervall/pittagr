@@ -20,6 +20,6 @@ def py_hextodec(s):
         right = s[3:14]
     else:
         right = s[4:15]
-    res = "%03d.%012d" % (int(left, 16), int(right, 16))
+    res = "%03d%012d" % (int(left, 16), int(right, 16))
     return(res)
 

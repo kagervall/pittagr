@@ -32,7 +32,7 @@ dec2hex <- function(x) {
 hex2dec <- function(x) {
   x[is.na(x)] <- "000.0000000000"
   r <- sapply(x, py_hextodec)
-  r[r == "000.000000000000"] <- NA
+  r[r == "000000000000000"] <- NA
   return(r)
 }
 
